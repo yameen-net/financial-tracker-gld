@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Financial Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Budget Management | Financial Tracker</title>
+    <link rel="stylesheet" href="/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="/home.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#">Features</a>
                     <ul class="dropdown-menu">
@@ -26,18 +27,24 @@
     </header>
 
     <main>
-        <section id="home">
-            <h1>Financial Tracker</h1>
-            <p>Take control of your finances with our simple and powerful financial tracker.</p>
+        <section id="budget-management">
+            <h2>Budget Management</h2>
+            <p>Set and track your budgets to manage your expenses effectively.</p>
             
-            <h3>Your Net Worth Progress</h3>
-            <div class="chart-container">
-                <canvas id="homeNetWorthChart"></canvas>
-            </div>
+            <label for="budgetCategory">Category:</label>
+            <input type="text" id="budgetCategory" placeholder="e.g. Food, Rent, Savings">
+            
+            <label for="budgetAmount">Budget Amount (£):</label>
+            <input type="number" id="budgetAmount" placeholder="Enter amount">
+            
+            <button id="addBudgetBtn">Add Budget</button>
+            
+            <h3>Your Budgets</h3>
+            <ul id="budgetList"></ul>
             
             <h3>Budget Overview</h3>
             <div class="chart-container">
-                <canvas id="homeBudgetChart"></canvas>
+                <canvas id="budgetChart"></canvas>
             </div>
         </section>
     </main>
@@ -45,7 +52,5 @@
     <footer>
         <p>&copy;Financial Tracker (name ideas??).</p>
     </footer>
-
-    <script src="/script.js"></script>
 </body>
 </html>
