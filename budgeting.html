@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting | Financial Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="budgeting.html">Budgeting</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="budget">
+            <h2>Budgeting</h2>
+
+            <!-- container for Income and Expenses -->
+            <div class="income-expense-container">
+                <!-- income Section -->
+                <div class="income-box">
+                    <h3>Income</h3>
+                    <button class="add-button" onclick="openModal('income')">+</button>
+                    <ul id="incomeList">
+                        <!-- dynamically filled with income rows -->
+                    </ul>
+                    <button class="expand-button" onclick="openViewAllModal('income')">View All</button>
+                </div>
+
+                <!-- expense Section -->
+                <div class="expense-box">
+                    <h3>Expenses</h3>
+                    <button class="add-button" onclick="openModal('expense')">+</button>
+                    <ul id="expenseList">
+                        <!-- dynamically filled with expense rows -->
+                    </ul>
+                    <button class="expand-button" onclick="openViewAllModal('expense')">View All</button>
+                </div>
+            </div>
+
+            <!-- financial Summary -->
+            <h3>Financial Summary</h3>
+            <div id="summary">
+                <p>Total Income: £<span id="totalIncome">0.00</span></p>
+                <p>Total Expenses: £<span id="totalExpenses">0.00</span></p>
+                <p>Balance: £<span id="balance">0.00</span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- modal for adding Income or Expense -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Add New Income</h3>
+            <form id="modalForm">
+                <label for="sourceCategory">Category:</label>
+                <input type="text" id="sourceCategory" placeholder="Enter category" required>
+
+                <label for="amount">Amount (£):</label>
+                <input type="number" id="amount" placeholder="Enter amount" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- view all modal -->
+    <div id="viewAllModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeViewAllModal()">&times;</span>
+            <h3 id="viewAllTitle">All Income</h3>
+            <ul id="viewAllList">
+                <!-- dynamically populated list of income or expenses -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Financial Tracker (name ideas??).</p>
+    </footer>
+
+    <script src="budgeting.js"></script>
+</body>
+</html>
