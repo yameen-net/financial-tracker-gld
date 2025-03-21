@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () =>
     const homeChartCanvas = document.getElementById('homeNetWorthChart');
     const netWorthChartCanvas = document.getElementById('netWorthChart');
 
+    const homeNetWorthDataStr = localStorage.getItem('homeNetWorthChartData');
+    const netWorthDataStr = localStorage.getItem('netWorthChartData');
+
     const chartConfig = 
     {
         type: 'line',
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 x: {
                     title: {
                         display: true,
-                        text: 'Entry Number'
+                        text: 'Entry Dates'
                     }
                 },
                 y: {
@@ -57,6 +60,19 @@ document.addEventListener('DOMContentLoaded', () =>
         netWorthChart = new Chart(netWorthCtx, chartConfig);
     }
 
+    if (netWorthDataStr)
+    {
+        const data = JSON.parse(netWorthDataStr);
+
+        [homeNetWorthChart, netWorthChart].forEach(chart => {
+            if (chart) {
+                chart.data.labels.push(...data.labels);
+                chart.data.datasets[0].data.push(...data.data);
+                chart.update();
+            }
+        });
+    }
+
     if (calculateBtn) 
     {
         calculateBtn.addEventListener('click', () => {
@@ -67,9 +83,17 @@ document.addEventListener('DOMContentLoaded', () =>
 
             [homeNetWorthChart, netWorthChart].forEach(chart => {
                 if (chart) {
-                    chart.data.labels.push(`Entry ${chart.data.labels.length + 1}`);
+                    chart.data.labels.push(`${chart.data.labels.length + 1, new Date().toLocaleDateString()}`);
                     chart.data.datasets[0].data.push(netWorth);
                     chart.update();
+
+                    const data = {
+                        labels: chart.data.labels,
+                        data: chart.data.datasets[0].data
+                    };
+
+                    localStorage.setItem('netWorthChartData', JSON.stringify(data));
+                    localStorage.setItem('homeNetWorthChartData', JSON.stringify(data));
                 }
             });
         });
