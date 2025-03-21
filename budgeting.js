@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
        
     ];
 
+    const incomeDataStr = localStorage.getItem('incomeData');
+    const expenseDataStr = localStorage.getItem('expenseData');
+
+    if (incomeDataStr) {
+        incomeData = JSON.parse(incomeDataStr);
+    }
+
+    if (expenseDataStr) {
+        expenseData = JSON.parse(expenseDataStr);
+    }
+
     const incomeList = document.getElementById("incomeList");
     const expenseList = document.getElementById("expenseList");
     const viewAllModal = document.getElementById("viewAllModal");
@@ -46,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     incomeData.push({ source: sourceCategory, amount });
                     incomeData.sort((a, b) => b.amount - a.amount); // sort by amount descending
                     displayEntries(incomeData, 'income');
+                    localStorage.setItem('incomeData', JSON.stringify(incomeData));
                     updateFinancialSummary();
                 }
                 closeModal(); 
@@ -60,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     expenseData.push({ category: sourceCategory, amount });
                     expenseData.sort((a, b) => b.amount - a.amount); // sort bby decending 
                     displayEntries(expenseData, 'expense');
+                    localStorage.setItem('expenseData', JSON.stringify(expenseData));
                     updateFinancialSummary();
                 }
                 closeModal(); 
