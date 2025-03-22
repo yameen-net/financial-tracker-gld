@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Linking the external CSS file -->
+    <script src="../script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Features</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Features/net-worth.html">Net Worth Calculation</a></li>
+                        <li><a href="../Features/exchange-rates.html">Exchange Rate</a></li>
+                    </ul>
+                </li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../budgeting.html">Budgeting</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h1>Currency Converter</h1>
+                <div class="converter-section">
+                    <div class="converter-form">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" placeholder="Enter amount" required>
+                        <label for="fromCurrency">From Currency:</label>
+                        <select id="fromCurrency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="INR">INR</option>
+                            <option value="NZD">NZD</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
+                        <label for="toCurrency">To Currency:</label>
+                        <select id="toCurrency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="INR">INR</option>
+                            <option value="NZD">NZD</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
+                        <button id="convertBtn" onclick="convertCurrency()">Convert</button>
+                        <div class="result" id="result"></div>
+                    </div>
+                    <div class="rates-section">
+                        <h2>All Exchange Rates</h2>
+                        <p>Last updated: <span id="lastUpdated"></span></p>
+                        <div class="table-container">
+                            <table id="ratesTable" class="rates-table">
+                                <thead>
+                                    <tr>
+                                        <th>Base Currency</th>
+                                        <th>USD</th>
+                                        <th>EUR</th>
+                                        <th>GBP</th>
+                                        <th>JPY</th>
+                                        <th>AUD</th>
+                                        <th>CAD</th>
+                                        <th>CHF</th>
+                                        <th>CNY</th>
+                                        <th>INR</th>
+                                        <th>NZD</th>
+                                        <th>ZAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ratesTableBody">
+                                    <!-- Table will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button onclick="refreshRates()" class="refresh-btn">Refresh Rates</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Currency Converter. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+</script>
+</body>
+</html>
