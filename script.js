@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>
     const homeNetWorthDataStr = localStorage.getItem('homeNetWorthChartData');
     const netWorthDataStr = localStorage.getItem('netWorthChartData');
 
+    const netChange = document.getElementById('netChange');
+
     const chartConfig = 
     {
         type: 'line',
@@ -72,6 +74,19 @@ document.addEventListener('DOMContentLoaded', () =>
             }
         });
     }
+
+    if (homeNetWorthChart)
+    {
+        const data = homeNetWorthChart.data.datasets[0].data;
+        if (data.length >= 2)
+        {
+            const lastTwoValues = data.slice(-2);
+            const netChangeValue = lastTwoValues[1] - lastTwoValues[0];
+
+            netChange.textContent = `Net Change From Last Two Entries: £${netChangeValue.toFixed(2)} (${((netChangeValue / lastTwoValues[0]) * 100).toFixed(2)}%)`;
+        }
+    }
+
 
     if (calculateBtn) 
     {
