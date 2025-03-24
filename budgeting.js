@@ -126,6 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
         totalIncomeElem.textContent = totalIncome.toFixed(2);
         totalExpensesElem.textContent = totalExpenses.toFixed(2);
         balanceElem.textContent = balance.toFixed(2);
+
+        balanceElem.parentElement.style.color = balance < 0 ? "red" : "green";
+
     }
 
     updateFinancialSummary(); // update the financial summary on page load
