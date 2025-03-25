@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () =>
     const homeNetWorthDataStr = localStorage.getItem('homeNetWorthChartData');
     const netWorthDataStr = localStorage.getItem('netWorthChartData');
 
-    const entries = document.getElementById('entryList');
-
     const netChange = document.getElementById('netChange');
 
     const chartConfig = 
@@ -74,40 +72,6 @@ document.addEventListener('DOMContentLoaded', () =>
                 chart.data.datasets[0].data.push(...data.data);
                 chart.update();
             }
-        });
-
-        // add entries to the list with delete button
-        data.labels.forEach((label, index) => {
-            const li = document.createElement('li');
-            li.textContent = `${label}: £${data.data[index]}`;
-            entries.appendChild(li);
-
-            const deleteBtn = document.createElement('button');
-            
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.addEventListener('click', () => {
-                [homeNetWorthChart, netWorthChart].forEach(chart => {
-                    if (chart) {
-                        chart.data.labels.splice(index, 1);
-                        chart.data.datasets[0].data.splice(index, 1);
-                        chart.update();
-                    }
-                });
-
-                data.labels.splice(index, 1);
-                data.data.splice(index, 1);
-                localStorage.setItem('netWorthChartData', JSON.stringify(data));
-                localStorage.setItem('homeNetWorthChartData', JSON.stringify(data));
-
-                entries.innerHTML = "";
-                data.labels.forEach((label, index) => {
-                    const li = document.createElement('li');
-                    li.textContent = `${label}: £${data.data[index]}`;
-                    entries.appendChild(li);
-                });
-            });
-
-            li.appendChild(deleteBtn);
         });
     }
 
