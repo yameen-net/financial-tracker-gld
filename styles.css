@@ -116,6 +116,11 @@ canvas {
     height: auto;
 }
 
+.home-canvas {
+    max-width: 70%;
+    height: auto;
+}
+
 main {
     flex-grow: 1;
     overflow-y: auto;
@@ -312,4 +317,12 @@ button {
 
 button:hover {
     background-color: #444;
+}
+
+.income-btn {
+    background-color: #2ecc71;
+}
+
+.expense-btn {
+    background-color: #b00b25;
 }
