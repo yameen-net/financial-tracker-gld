@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () =>
 
     const netChange = document.getElementById('netChange');
 
+    const expenseList = document.getElementById('expenseList');
+    const expenses = JSON.parse(localStorage.getItem('expenseData')) || {};
+
     const chartConfig = 
     {
         type: 'line',
@@ -86,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () =>
             netChange.textContent = `Net Change From Last Two Entries: £${netChangeValue.toFixed(2)} (${((netChangeValue / lastTwoValues[0]) * 100).toFixed(2)}%)`;
         }
     }
-
+    
     if (calculateBtn) 
     {
         calculateBtn.addEventListener('click', () => {
@@ -112,4 +115,11 @@ document.addEventListener('DOMContentLoaded', () =>
             });
         });
     }
+
+    Object.keys(expenses).forEach(key => {
+        const li = document.createElement('li');
+        li.textContent = `${expenses[key].category}: £${expenses[key].amount}`;
+        expenseList.appendChild(li);
+    });
+
 });

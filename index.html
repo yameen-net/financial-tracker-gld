@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Tracker</title>
+    <title>Home | Financial Tracker</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -11,30 +11,37 @@
     <header>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#">Features</a>
                     <ul class="dropdown-menu">
                         <li><a href="Features/net-worth.html">Net Worth Calculation</a></li>
-                        <li><a href="Features/currencyconv.html">Convert Currency</a></li>
-                        <li><a href="Features/budgeting.html">Budgeting</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-       
+                <li><a href="budgeting.html">Budgeting</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home">
+        <section id="home">     
             <h1>Financial Tracker</h1>
             <p>Take control of your finances with our simple and powerful financial tracker.</p>
             <h3>Your Net Worth Progress</h3>
             <p id="netChange"></p>
-            <div class="chart-container">
-                <canvas id="homeNetWorthChart"></canvas>
+
+            <div class="layout">
+                <div class="home-chart chart-container">
+                    <canvas id="homeNetWorthChart"></canvas>
+                </div>
+                <div id="all-expenses">
+                    <h3>All Expenses</h3>
+                    <ul id="expenseList">
+                        <!-- dynamically filled with expense rows -->
+                    </ul>
+                </div>
             </div>
         </section>
     </main>

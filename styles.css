@@ -327,46 +327,16 @@ button:hover {
     background-color: #b00b25;
 }
 
-
-/* Currency Converter Styles */
-#currencyConverter {
-    background-color: #fff;
-    padding: 1.5em;
-    margin-top: 2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.home-chart {
+    width: 50%;
 }
 
-#currencyConverter h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1em;
+#all-expenses {
+    width: 25%;
+    margin: 0 auto;
 }
 
-#currencyConverter label {
-    font-size: 1rem;
-    margin-bottom: 0.5em;
-    display: block;
-}
-
-#currencyConverter select,
-#currencyConverter input {
-    width: 100%;
-    padding: 10px;
-    margin: 0.5em 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#currencyConverter button {
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-#currencyConverter button:hover {
-    background-color: #555;
+.layout {
+    display: flex;
+    flex-direction: row;
 }
