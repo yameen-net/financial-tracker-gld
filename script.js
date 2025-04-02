@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () =>
     const expenseCategoryInput = document.getElementById('expense-category');
     const expenseAmountInput = document.getElementById('expense-amount');
 
-    // event listener for adding expenses
-    submitExpenseBtn.addEventListener('click', () => {
+    if (submitExpenseBtn) {
+            // event listener for adding expenses
+        submitExpenseBtn.addEventListener('click', () => {
         const category = expenseCategoryInput.value;
         const amount = parseFloat(expenseAmountInput.value) || 0;
         if (category && !isNaN(amount)) {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
         }
     });
+    }
 
     const chartConfig = 
     {
