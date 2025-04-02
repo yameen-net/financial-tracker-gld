@@ -16,11 +16,13 @@
                     <a href="#">Features</a>
                     <ul class="dropdown-menu">
                         <li><a href="Features/net-worth.html">Net Worth Calculation</a></li>
+                        <li><a href="Features/currencyconv.html">Convert Currency</a></li>
+                        <li><a href="Features/budgeting.html"></a>Budgeting</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="budgeting.html">Budgeting</a></li>
+                
             </ul>
         </nav>
     </header>
@@ -35,6 +37,56 @@
                 <canvas id="homeNetWorthChart"></canvas>
             </div>
         </section>
+
+        <button id="openCurrencyConverter">Open Currency Converter</button>
+
+    <!-- Modal Structure -->
+    <div id="currencyConverterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeCurrencyConverter">&times;</span>
+            <h3>Currency Converter</h3>
+            <!-- currency-converter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Reference your main styles -->
+    <script defer src="currency-converter.js"></script> <!-- Reference your JS file -->
+</head>
+<body>
+    <section id="currencyConverter">
+        <h3>Currency Converter</h3>
+        <label for="currencyFrom">From Currency:</label>
+        <select id="currencyFrom">
+            <option value="GBP">GBP</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            
+        </select>
+
+        <label for="currencyTo">To Currency:</label>
+        <select id="currencyTo">
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+           
+        </select>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required>
+
+        <button id="convertBtn">Convert</button>
+
+        <p>Converted Amount: £<span id="convertedAmount">0.00</span></p>
+    </section>
+</body>
+</html>
+
+        </div>
+    </div>
+
     </main>
 
     <footer>
@@ -42,5 +94,7 @@
     </footer>
 
     <script src="script.js"></script>
+
+
 </body>
 </html>
