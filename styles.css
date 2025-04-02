@@ -327,16 +327,31 @@ button:hover {
     background-color: #b00b25;
 }
 
-.home-chart {
-    width: 50%;
-}
-
 #all-expenses {
-    width: 25%;
+    width: 20%;
     margin: 0 auto;
 }
+
+.home-expense-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row-button button {
+    margin: 10px 10px 16px;
+}   
 
 .layout {
     display: flex;
     flex-direction: row;
 }
+
+

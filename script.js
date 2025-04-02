@@ -17,6 +17,24 @@ document.addEventListener('DOMContentLoaded', () =>
     const expenseList = document.getElementById('expenseList');
     const expenses = JSON.parse(localStorage.getItem('expenseData')) || {};
 
+    const submitExpenseBtn = document.getElementById('submitExpense');
+    const expenseCategoryInput = document.getElementById('expense-category');
+    const expenseAmountInput = document.getElementById('expense-amount');
+
+    // event listener for adding expenses
+    submitExpenseBtn.addEventListener('click', () => {
+        const category = expenseCategoryInput.value;
+        const amount = parseFloat(expenseAmountInput.value) || 0;
+        if (category && !isNaN(amount)) {
+            // Store the expense in local storage
+
+            expenses.push({ category: category, amount: amount });
+            expenses.sort((a, b) => b.amount - a.amount); // sort bby decending 
+            localStorage.setItem('expenseData', JSON.stringify(expenses));
+
+        }
+    });
+
     const chartConfig = 
     {
         type: 'line',

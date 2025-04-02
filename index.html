@@ -6,6 +6,7 @@
     <title>Home | Financial Tracker</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -27,18 +28,24 @@
 
     <main>
         <section id="home">     
-            <h1>Financial Tracker</h1>
-            <p>Take control of your finances with our simple and powerful financial tracker.</p>
-            <h3>Your Net Worth Progress</h3>
-            <p id="netChange"></p>
-
             <div class="layout">
-                <div class="home-chart chart-container">
-                    <canvas id="homeNetWorthChart"></canvas>
+                <div>
+                    <h1>Financial Tracker</h1>
+                    <p>Take control of your finances with our simple and powerful financial tracker.</p>
+                    <h3>Your Net Worth Progress</h3>
+                    <p id="netChange"></p>
+                    <div class="home-chart chart-container">
+                        <canvas id="homeNetWorthChart"></canvas>
+                    </div>
                 </div>
-                <div id="all-expenses">
+                <div id="all-expenses" class="home-expense-box">
                     <h3>All Expenses</h3>
-                    <ul id="expenseList">
+                    <input type="text" id="expense-category" placeholder="Category">
+                    <div class="row-button">
+                        <input type="number" id="expense-amount" placeholder="Amount (£)">
+                        <button class="add-button expense-btn" id="submitExpense">+</button>
+                    </div>
+                    <ul id="expenseList" class="home-expense-list">
                         <!-- dynamically filled with expense rows -->
                     </ul>
                 </div>
