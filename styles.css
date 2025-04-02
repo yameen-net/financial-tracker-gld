@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #027b69;
     color: white;
     padding: 1em;
 }
@@ -51,7 +51,7 @@ nav a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #333;
+    background-color: #027b69;
     padding: 0.5em 0;
     border-radius: 5px;
     min-width: 150px;
@@ -135,7 +135,7 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #027b69;
     color: white;
     text-align: center;
     padding: 1em;
@@ -144,6 +144,10 @@ footer {
     left: 0;
     width: 100%;
     z-index: 100;
+}
+
+footer p {
+    color: white;
 }
 
 /* Input and Button Styles */
@@ -170,7 +174,7 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #027b69;
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -228,34 +232,12 @@ input[type="text"], input[type="number"] {
     border-radius: 5px;
 }
 
-button {
-    padding: 0.5em 1em;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #444;
-}
-
 /* Financial summary box styles */
 #summary {
     background-color: #f0f0f0;
     padding: 1em;
     border-radius: 8px;
     margin-top: 2em;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 1em;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 
@@ -307,20 +289,8 @@ footer {
     margin-bottom: 1em;
 }
 
-button {
-    padding: 0.5em 1em;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #444;
-}
-
 .income-btn {
-    background-color: #2ecc71;
+    background-color: #027b69;
 }
 
 .expense-btn {
@@ -353,5 +323,3 @@ button:hover {
     display: flex;
     flex-direction: row;
 }
-
-
