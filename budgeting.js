@@ -41,43 +41,47 @@ document.addEventListener('DOMContentLoaded', () => {
     displayEntries(incomeData, 'income');
     displayEntries(expenseData, 'expense');
 
-    //  modal for adding income or expense
+    // open the modal for adding income or expense
     window.openModal = function(type) {
         const modal = document.getElementById("modal");
         const modalTitle = document.getElementById("modalTitle");
         const form = document.getElementById("modalForm");
 
-        if (type === 'income') {
-            modalTitle.textContent = "Add New Income";
-            form.onsubmit = function (e) {
-                e.preventDefault();
-                const sourceCategory = document.getElementById("sourceCategory").value;
-                const amount = parseFloat(document.getElementById("amount").value) || 0;
-                if (sourceCategory && !isNaN(amount)) {
-                    incomeData.push({ source: sourceCategory, amount });
-                    incomeData.sort((a, b) => b.amount - a.amount); // sort by amount descending
-                    displayEntries(incomeData, 'income');
-                    localStorage.setItem('incomeData', JSON.stringify(incomeData));
-                    updateFinancialSummary();
-                }
-                closeModal(); 
-            };
-        } else if (type === 'expense') {
-            modalTitle.textContent = "Add New Expense";
-            form.onsubmit = function (e) {
-                e.preventDefault();
-                const sourceCategory = document.getElementById("sourceCategory").value;
-                const amount = parseFloat(document.getElementById("amount").value) || 0;
-                if (sourceCategory && !isNaN(amount)) {
-                    expenseData.push({ category: sourceCategory, amount });
-                    expenseData.sort((a, b) => b.amount - a.amount); // sort bby decending 
-                    displayEntries(expenseData, 'expense');
-                    localStorage.setItem('expenseData', JSON.stringify(expenseData));
-                    updateFinancialSummary();
-                }
-                closeModal(); 
-            };
-        }
+        modalTitle.textContent = type === 'income' ? "Add New Income" : "Add New Expense";
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            const sourceCategory = document.getElementById("sourceCategory").value.trim();
+            const amount = parseFloat(document.getElementById("amount").value);
+
+            // VALIDATION START
+            if (!sourceCategory) {
+                alert("Please enter a valid category or source.");
+                return;
+            }
+
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid positive amount.");
+                return;
+            }
+            //  VALIDATION END
+
+            if (type === 'income') {
+                incomeData.push({ source: sourceCategory, amount });
+                incomeData.sort((a, b) => b.amount - a.amount);
+                displayEntries(incomeData, 'income');
+                localStorage.setItem('incomeData', JSON.stringify(incomeData));
+            } else if (type === 'expense') {
+                expenseData.push({ category: sourceCategory, amount });
+                expenseData.sort((a, b) => b.amount - a.amount);
+                displayEntries(expenseData, 'expense');
+                localStorage.setItem('expenseData', JSON.stringify(expenseData));
+            }
+
+            updateFinancialSummary();
+            closeModal();
+        };
+
 
         modal.style.display = "block"; 
     };

@@ -113,8 +113,22 @@ document.addEventListener('DOMContentLoaded', () =>
     if (calculateBtn) 
     {
         calculateBtn.addEventListener('click', () => {
+
+            const assetsValue = assetsInput.value.trim();
+            const liabilitiesValue = liabilitiesInput.value.trim();
+        
+            if (!assetsValue || !liabilitiesValue) {
+                alert("Please enter both your assets and liabilities.");
+                return;
+            }
+            
             const assets = parseFloat(assetsInput.value) || 0;
             const liabilities = parseFloat(liabilitiesInput.value) || 0;
+
+            if (isNaN(assets) || isNaN(liabilities)) {
+                alert("Make sure both values are numbers.");
+                return;
+            }
             const netWorth = assets - liabilities;
             netWorthDisplay.textContent = `Your Net Worth: £${netWorth.toFixed(2)}`;
 
