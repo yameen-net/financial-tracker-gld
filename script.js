@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () =>
             expenses.push({ category: category, amount: amount });
             expenses.sort((a, b) => b.amount - a.amount); // sort bby decending 
             localStorage.setItem('expenseData', JSON.stringify(expenses));
+            window.location.reload()
 
         }
     });
